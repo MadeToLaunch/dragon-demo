@@ -691,7 +691,7 @@ export const site = {
   social: {
 
     favicon:
-      "/favicon.png",
+      favicon: "/favicon.png?v=2",
 
     previewImage:
       "/social-preview.png",
