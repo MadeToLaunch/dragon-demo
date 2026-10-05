@@ -1,0 +1,15 @@
+{
+  "name": "dragon-demo",
+  "compatibility_date": "2026-10-05",
+
+  "assets": {
+    "directory": "./dist"
+  },
+
+  "routes": [
+    {
+      "pattern": "dragon.madetolaunch.co.uk",
+      "custom_domain": true
+    }
+  ]
+}
