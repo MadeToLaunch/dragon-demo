@@ -1,0 +1,494 @@
+---
+import { site } from "../data/site.js";
+import "../styles/global.css";
+
+const currentYear = new Date().getFullYear();
+
+const pageTitle =
+  `Terms & Conditions | ${site.businessName}`;
+
+const pageDescription =
+  `Terms & Conditions for ${site.businessName}.`;
+
+const termsIntro =
+  `These terms apply to the use of the website operated by ${site.businessName}.`;
+
+const enquiryText =
+  `Submitting an enquiry or requesting a quotation through this website does not create a contract between you and ${site.businessName}.`;
+
+const copyrightText =
+  `Unless otherwise stated, the content of this website, including text, graphics and branding, belongs to ${site.businessName} or is used with permission.`;
+
+const footerText =
+  `© ${currentYear} ${site.businessName}. All rights reserved.`;
+---
+
+<html
+  lang="en"
+  style={`--brand: ${site.primaryColour}; --brand-hover: ${site.primaryHover};`}
+>
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>{pageTitle}</title>
+
+    <meta
+      name="description"
+      content={pageDescription}
+    />
+
+  </head>
+
+
+  <body>
+
+    <header class="legal-header">
+
+      <div class="legal-nav">
+
+        <a href="/" class="logo">
+          <span class="logo-mark">▲</span>
+          <span>{site.shortName}</span>
+        </a>
+
+        <a href="/" class="back-link">
+          ← Back to website
+        </a>
+
+      </div>
+
+    </header>
+
+
+    <main class="legal-page">
+
+      <p class="eyebrow">
+        LEGAL
+      </p>
+
+      <h1>
+        Terms & Conditions
+      </h1>
+
+      <p class="updated">
+        Last updated: October 2026
+      </p>
+
+
+      <section>
+
+        <h2>
+          1. About these terms
+        </h2>
+
+        <p>
+          {termsIntro}
+        </p>
+
+        <p>
+          By using this website, you agree to use it lawfully and
+          in accordance with these terms.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          2. Website information
+        </h2>
+
+        <p>
+          We aim to keep the information on this website accurate
+          and up to date.
+        </p>
+
+        <p>
+          However, website content is provided for general
+          information and may be changed without notice.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          3. Quotations and enquiries
+        </h2>
+
+        <p>
+          {enquiryText}
+        </p>
+
+        <p>
+          Any quotation, scope of work, price, timescale or
+          additional terms relating to services should be agreed
+          separately before work begins.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          4. Prices
+        </h2>
+
+        <p>
+          Any prices displayed on this website are for general
+          guidance unless clearly stated otherwise.
+        </p>
+
+        <p>
+          Final pricing may depend on the individual project,
+          materials, labour, location and other relevant factors.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          5. Availability
+        </h2>
+
+        <p>
+          Service availability, appointment times and completion
+          dates may vary.
+        </p>
+
+        <p>
+          Any timescales should be confirmed directly with us.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          6. Intellectual property
+        </h2>
+
+        <p>
+          {copyrightText}
+        </p>
+
+        <p>
+          Website content may not be copied, reproduced or
+          redistributed without permission where applicable.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          7. External links
+        </h2>
+
+        <p>
+          This website may contain links to third-party websites.
+          We are not responsible for the content, availability or
+          privacy practices of external websites.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          8. Liability
+        </h2>
+
+        <p>
+          Nothing in these terms excludes or limits liability
+          where doing so would be unlawful.
+        </p>
+
+        <p>
+          To the extent permitted by law, we are not responsible
+          for losses arising solely from reliance on general
+          information provided on this website.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          9. Changes to these terms
+        </h2>
+
+        <p>
+          These terms may be updated from time to time.
+        </p>
+
+        <p>
+          The latest version will be published on this page.
+        </p>
+
+      </section>
+
+
+      <section>
+
+        <h2>
+          10. Contact
+        </h2>
+
+        <p>
+          If you have any questions about these terms, contact:
+        </p>
+
+        <div class="contact-card">
+
+          <strong>
+            {site.businessName}
+          </strong>
+
+          <span>
+            {site.location}
+          </span>
+
+          <a href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+
+          <a href={`tel:${site.phoneLink}`}>
+            {site.phoneDisplay}
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer class="legal-footer">
+
+      <p>
+        {footerText}
+      </p>
+
+    </footer>
+
+  </body>
+
+</html>
+
+
+<style>
+
+  .legal-header {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+
+  .legal-nav {
+    max-width: 1000px;
+    margin: auto;
+    padding: 22px 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+  }
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    text-decoration: none;
+    color: #111827;
+
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+
+  .logo-mark {
+    color: var(--brand);
+  }
+
+
+  .back-link {
+    color: #6b7280;
+
+    text-decoration: none;
+
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+
+  .back-link:hover {
+    color: var(--brand);
+  }
+
+
+  .legal-page {
+    max-width: 850px;
+    margin: auto;
+
+    padding: 90px 30px;
+  }
+
+
+  .eyebrow {
+    color: var(--brand);
+
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin: 0;
+  }
+
+
+  h1 {
+    margin: 14px 0;
+
+    color: #111827;
+
+    font-size: clamp(44px, 7vw, 72px);
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+
+
+  .updated {
+    color: #6b7280;
+
+    margin: 0 0 60px;
+  }
+
+
+  section {
+    margin-bottom: 44px;
+  }
+
+
+  h2 {
+    color: #111827;
+
+    font-size: 24px;
+
+    margin: 0 0 14px;
+  }
+
+
+  p,
+  li {
+    color: #4b5563;
+
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+
+  a {
+    color: var(--brand);
+  }
+
+
+  .contact-card {
+    margin-top: 20px;
+
+    padding: 24px;
+
+    background: #fafaf8;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+  }
+
+
+  .contact-card strong {
+    color: #111827;
+
+    font-size: 17px;
+  }
+
+
+  .contact-card span {
+    color: #4b5563;
+  }
+
+
+  .contact-card a {
+    text-decoration: none;
+  }
+
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+
+  .legal-footer {
+    border-top: 1px solid #e5e7eb;
+
+    padding: 30px;
+
+    text-align: center;
+  }
+
+
+  .legal-footer p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+  }
+
+
+  @media (max-width: 600px) {
+
+    .legal-page {
+      padding: 65px 24px;
+    }
+
+
+    .legal-nav {
+      padding: 18px 24px;
+    }
+
+
+    .back-link {
+      font-size: 13px;
+    }
+
+
+    h1 {
+      letter-spacing: -2px;
+    }
+
+  }
+
+</style>

@@ -1,0 +1,197 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section class="about" id="about">
+  <div class="about-inner">
+
+    <div class="about-content">
+
+      <p class="eyebrow">
+        ABOUT US
+      </p>
+
+      <h2>
+        {site.about.heading}
+      </h2>
+
+      <p class="about-text">
+        {site.about.paragraphOne}
+      </p>
+
+      <p class="about-text">
+        {site.about.paragraphTwo}
+      </p>
+
+      <a href="#contact" class="about-button">
+        Get a Free Quote →
+      </a>
+
+    </div>
+
+    <div class="trust-panel">
+
+      {site.stats.map((stat) => (
+        <div class="trust-item">
+          <strong>{stat.value}</strong>
+          <span>{stat.label}</span>
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 110px 40px;
+    background: #111827;
+    color: white;
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-content {
+    max-width: 650px;
+  }
+
+  .eyebrow {
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    margin: 0 0 28px;
+    font-size: 48px;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+  }
+
+  .about-text {
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.75;
+    margin-bottom: 18px;
+  }
+
+  .about-button {
+    display: inline-block;
+    margin-top: 18px;
+
+    padding: 15px 24px;
+    border-radius: 10px;
+
+    background: var(--brand);
+    color: white;
+
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .about-button:hover {
+    background: var(--brand);
+  }
+
+  .trust-panel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .trust-item {
+    min-height: 160px;
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border: 1px solid #374151;
+    border-radius: 16px;
+
+    background: #1f2937;
+  }
+
+  .trust-item strong {
+    display: block;
+    color: var(--brand);
+    font-size: 38px;
+    margin-bottom: 8px;
+  }
+
+  .trust-item span {
+    color: #e5e7eb;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 800px) {
+
+  .about {
+    padding: 80px 24px;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .about h2 {
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .about p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat {
+    padding: 22px 16px;
+  }
+
+  .stat-value {
+    font-size: 30px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .about {
+    padding: 70px 18px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat {
+    padding: 20px 12px;
+  }
+
+}
+</style>

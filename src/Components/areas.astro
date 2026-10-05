@@ -1,0 +1,128 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section class="areas" id="areas">
+  <div class="areas-inner">
+
+    <div class="areas-copy">
+      <p class="eyebrow">
+  {site.areasSection.eyebrow}
+</p>
+
+<h2>
+  {site.areasSection.heading}
+</h2>
+
+<p>
+  {site.areasSection.description}
+</p>
+    </div>
+
+    <div class="area-list">
+  {site.areas.map((area) => (
+    <span>{area}</span>
+  ))}
+</div>
+
+  </div>
+</section>
+
+<style>
+  .areas {
+    padding: 100px 40px;
+    background: #111827;
+    color: white;
+  }
+
+  .areas-inner {
+    max-width: 1200px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .eyebrow {
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0 0 22px;
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+  }
+
+  .areas-copy p:last-child {
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .area-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .area-list span {
+    padding: 18px 20px;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    background: #1f2937;
+    font-weight: 600;
+  }
+
+  @media (max-width: 800px) {
+
+  .areas {
+    padding: 80px 24px;
+  }
+
+  .areas-header {
+    margin-bottom: 40px;
+  }
+
+  .areas-header h2 {
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .areas-header p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .area-item {
+    padding: 18px 16px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .areas {
+    padding: 70px 18px;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+}
+</style>

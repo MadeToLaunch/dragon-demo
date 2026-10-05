@@ -1,0 +1,459 @@
+---
+import { site } from "../data/site.js";
+---
+
+<nav class="mtl-navbar">
+
+  <div class="mtl-nav-inner">
+
+    <!-- LOGO -->
+    <a href="/" class="mtl-logo">
+      <span class="mtl-logo-mark">▲</span>
+      <span>{site.shortName}</span>
+    </a>
+
+
+    <!-- DESKTOP NAVIGATION -->
+    <div class="mtl-desktop-nav">
+
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#projects">Our Work</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <!-- DESKTOP QUOTE BUTTON -->
+    <a
+      href="#contact"
+      class="mtl-desktop-quote"
+    >
+      Get a Quote
+    </a>
+
+
+    <!-- MOBILE MENU -->
+    <details class="mtl-mobile-nav">
+
+      <summary
+        aria-label="Open navigation menu"
+      >
+        <span class="menu-open">☰</span>
+        <span class="menu-close">×</span>
+      </summary>
+
+
+      <div class="mtl-mobile-dropdown">
+
+        <a href="#services">
+          Services
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#projects">
+          Our Work
+        </a>
+
+        <a href="#reviews">
+          Reviews
+        </a>
+
+        <a href="#areas">
+          Areas
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+
+        <a
+          href="#contact"
+          class="mtl-mobile-quote"
+        >
+          Get a Quote
+        </a>
+
+      </div>
+
+    </details>
+
+  </div>
+
+</nav>
+
+
+<script is:inline>
+
+  document
+    .querySelectorAll(".mtl-mobile-dropdown a")
+    .forEach((link) => {
+
+      link.addEventListener("click", () => {
+
+        const menu =
+          link.closest(".mtl-mobile-nav");
+
+        if (menu) {
+          menu.removeAttribute("open");
+        }
+
+      });
+
+    });
+
+</script>
+
+
+<style>
+
+  /* =========================================
+     NAVBAR
+  ========================================= */
+
+  .mtl-navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    background: rgba(250, 250, 248, 0.96);
+
+    border-bottom: 1px solid #e5e7eb;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    z-index: 1000;
+  }
+
+
+  .mtl-nav-inner {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 18px 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+  }
+
+
+
+  /* =========================================
+     LOGO
+  ========================================= */
+
+  .mtl-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #111827;
+
+    text-decoration: none;
+
+    font-size: 19px;
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    flex-shrink: 0;
+  }
+
+
+  .mtl-logo-mark {
+    color: var(--brand);
+
+    font-size: 22px;
+  }
+
+
+
+  /* =========================================
+     DESKTOP NAVIGATION
+  ========================================= */
+
+  .mtl-desktop-nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin-left: auto;
+  }
+
+
+  .mtl-desktop-nav a {
+    color: #4b5563;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: color 0.2s ease;
+  }
+
+
+  .mtl-desktop-nav a:hover {
+    color: var(--brand);
+  }
+
+
+
+  /* =========================================
+     DESKTOP QUOTE BUTTON
+  ========================================= */
+
+  .mtl-desktop-quote {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    background: var(--brand);
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    flex-shrink: 0;
+
+    transition: background 0.2s ease;
+  }
+
+
+  .mtl-desktop-quote:hover {
+    background: var(--brand-hover);
+  }
+
+
+
+  /* =========================================
+     MOBILE NAVIGATION
+  ========================================= */
+
+  .mtl-mobile-nav {
+    display: none;
+
+    margin-left: auto;
+
+    position: relative;
+  }
+
+
+  .mtl-mobile-nav summary {
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    color: #111827;
+
+    font-size: 27px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    list-style: none;
+
+    user-select: none;
+  }
+
+
+  .mtl-mobile-nav summary::-webkit-details-marker {
+    display: none;
+  }
+
+
+  .menu-close {
+    display: none;
+  }
+
+
+  .mtl-mobile-nav[open] .menu-open {
+    display: none;
+  }
+
+
+  .mtl-mobile-nav[open] .menu-close {
+    display: block;
+  }
+
+
+
+  /* =========================================
+     MOBILE DROPDOWN
+  ========================================= */
+
+  .mtl-mobile-dropdown {
+    position: fixed;
+
+    top: 75px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 12px 24px 24px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: #fafaf8;
+
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+
+    box-shadow: 0 18px 35px rgba(17, 24, 39, 0.12);
+  }
+
+
+  .mtl-mobile-dropdown a {
+    width: 100%;
+
+    padding: 15px 4px;
+
+    color: #374151;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 650;
+
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+
+  .mtl-mobile-dropdown a:hover {
+    color: var(--brand);
+  }
+
+
+  .mtl-mobile-dropdown .mtl-mobile-quote {
+    margin-top: 16px;
+
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--brand);
+
+    color: #ffffff;
+
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 800;
+
+    text-align: center;
+  }
+
+
+  .mtl-mobile-dropdown .mtl-mobile-quote:hover {
+    background: var(--brand-hover);
+
+    color: #ffffff;
+  }
+
+
+
+  /* =========================================
+     TABLET / MOBILE
+  ========================================= */
+
+  @media screen and (max-width: 900px) {
+
+    .mtl-nav-inner {
+      padding: 14px 24px;
+    }
+
+
+    .mtl-desktop-nav {
+      display: none !important;
+    }
+
+
+    .mtl-desktop-quote {
+      display: none !important;
+    }
+
+
+    .mtl-mobile-nav {
+      display: block !important;
+    }
+
+  }
+
+
+
+  /* =========================================
+     SMALL MOBILE
+  ========================================= */
+
+  @media screen and (max-width: 480px) {
+
+    .mtl-nav-inner {
+      padding: 13px 18px;
+    }
+
+
+    .mtl-logo {
+      font-size: 16px;
+
+      max-width: calc(100% - 70px);
+    }
+
+
+    .mtl-logo-mark {
+      font-size: 19px;
+    }
+
+
+    .mtl-mobile-dropdown {
+      top: 71px;
+
+      padding-left: 18px;
+      padding-right: 18px;
+    }
+
+  }
+
+</style>

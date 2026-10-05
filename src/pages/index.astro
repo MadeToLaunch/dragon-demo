@@ -1,0 +1,311 @@
+---
+
+
+import "../styles/global.css";
+
+import Navbar from "../components/navbar.astro";
+import Services from "../components/services.astro";
+import About from "../components/about.astro";
+import Projects from "../components/projects.astro";
+import Reviews from "../components/reviews.astro";
+import Areas from "../components/areas.astro";
+import FAQ from "../components/FAQ.astro";
+import Contact from "../components/contact.astro";
+import Footer from "../components/footer.astro";
+
+import { site } from "../data/site.js";
+
+---
+
+<html
+  lang="en"
+  style={`--brand: ${site.primaryColour}; --brand-hover: ${site.primaryHover};`}
+>
+  <head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>{site.seo.title}</title>
+
+  <meta
+    name="description"
+    content={site.seo.description}
+  />
+
+  <meta
+    property="og:title"
+    content={site.seo.title}
+  />
+
+  <meta
+    property="og:description"
+    content={site.seo.description}
+  />
+
+  <link
+  rel="icon"
+  type="image/png"
+  href={site.social.favicon}
+/>
+
+<meta
+  property="og:title"
+  content={site.seo.title}
+/>
+
+<meta
+  property="og:description"
+  content={site.seo.description}
+/>
+
+<meta
+  property="og:image"
+  content={site.social.previewImage}
+/>
+
+<meta
+  property="og:type"
+  content="website"
+/>
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+/>
+
+<meta
+  name="twitter:title"
+  content={site.seo.title}
+/>
+
+<meta
+  name="twitter:description"
+  content={site.seo.description}
+/>
+
+<meta
+  name="twitter:image"
+  content={site.social.previewImage}
+/>
+</head>
+
+  <body>
+
+    <Navbar />
+
+    <main>
+
+      <section class="hero">
+
+        <div class="hero-content">
+
+          <p class="eyebrow">
+            {site.eyebrow}
+          </p>
+
+         <h1>
+  {site.tagline}
+</h1>
+
+          <p class="description">
+  {site.description}
+</p>
+
+          <div class="buttons">
+
+            <a href="#contact" class="primary">
+              Get a Free Quote →
+            </a>
+
+            <a href={`tel:${site.phoneLink}`} class="secondary">
+  Call Now
+</a>
+
+          </div>
+
+          <div class="trust-row">
+  {site.trustPoints.map((item) => (
+    <span>✓ {item}</span>
+  ))}
+</div>
+
+        </div>
+
+      </section>
+
+      <Services />
+	  <About />
+	  <Projects />
+	  <Reviews />
+	  <Areas />
+	  <FAQ />
+	  <Contact />
+	  <Footer site={site} />
+    </main>
+
+  </body>
+</html>
+
+<style>
+
+
+  .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding: 140px 40px 90px;
+}
+  .hero-content {
+    max-width: 850px;
+  }
+
+ .hero .eyebrow {
+  color: var(--brand);
+}
+
+  .hero h1 {
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    margin: 0;
+  }
+
+ .hero h1 span {
+  color: var(--brand);
+}
+
+  .description {
+    max-width: 650px;
+    margin-top: 30px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #6b7280;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 35px;
+  }
+
+  .buttons a {
+    padding: 16px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+ .buttons .primary {
+  background: var(--brand);
+  color: #ffffff !important;
+}
+
+  .buttons .primary:hover {
+  background: var(--brand-hover);
+  color: #ffffff !important;
+}
+
+
+  .secondary {
+    color: #111827;
+    border: 1px solid #d1d5db;
+    background: white;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 28px;
+    margin-top: 40px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 700px) {
+
+  .hero {
+    min-height: auto;
+
+    padding: 120px 20px 70px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero .eyebrow {
+    font-size: 12px;
+    line-height: 1.5;
+
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-size: clamp(44px, 13vw, 58px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+  }
+
+  .description {
+    margin-top: 24px;
+
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .buttons {
+    width: 100%;
+
+    margin-top: 30px;
+
+    flex-direction: column;
+
+    gap: 12px;
+  }
+
+  .buttons a {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    text-align: center;
+  }
+
+  .trust-row {
+    margin-top: 36px;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .hero {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+}
+</style>

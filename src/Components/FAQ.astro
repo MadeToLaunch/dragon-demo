@@ -1,0 +1,192 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section class="faq" id="faq">
+
+  <div class="faq-inner">
+
+    <div class="faq-heading">
+
+      <p class="eyebrow">
+        {site.faqSection.eyebrow}
+      </p>
+
+      <h2>
+        {site.faqSection.heading}
+      </h2>
+
+      <p class="faq-description">
+        {site.faqSection.description}
+      </p>
+
+    </div>
+
+    <div class="faq-list">
+
+      {site.faqs.map((faq) => (
+
+        <details class="faq-item">
+
+          <summary>
+            <span>
+              {faq.question}
+            </span>
+
+            <span class="faq-icon">
+              +
+            </span>
+          </summary>
+
+          <div class="faq-answer">
+
+            <p>
+              {faq.answer}
+            </p>
+
+          </div>
+
+        </details>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+  .faq {
+    padding: 110px 40px;
+    background: #fafaf8;
+  }
+
+  .faq-inner {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .faq-heading {
+    max-width: 650px;
+    margin-bottom: 45px;
+  }
+
+  .eyebrow {
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0 0 18px;
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: #111827;
+  }
+
+  .faq-heading p:last-child {
+    color: #6b7280;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  details {
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: white;
+    overflow: hidden;
+  }
+
+  summary {
+    padding: 22px 24px;
+    cursor: pointer;
+    font-weight: 700;
+    color: #111827;
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::after {
+    content: "+";
+    float: right;
+    color: var(--brand);
+    font-size: 22px;
+  }
+
+  details[open] summary::after {
+    content: "−";
+  }
+
+  details p {
+    margin: 0;
+    padding: 0 24px 24px;
+    color: #6b7280;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 800px) {
+
+  .faq {
+    padding: 80px 24px;
+  }
+
+  .faq-heading {
+    margin-bottom: 40px;
+  }
+
+  .faq-heading h2 {
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .faq-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    gap: 12px;
+  }
+
+  .faq-item summary {
+    padding: 20px;
+
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    padding: 0 20px 20px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .faq {
+    padding: 70px 18px;
+  }
+
+  .faq-item summary {
+    padding: 18px;
+  }
+
+  .faq-answer {
+    padding: 0 18px 18px;
+  }
+
+}
+</style>

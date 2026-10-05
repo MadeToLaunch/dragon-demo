@@ -1,0 +1,171 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section class="reviews" id="reviews">
+  <div class="reviews-inner">
+
+    <div class="reviews-heading">
+
+      <p class="eyebrow">
+        {site.reviewsSection.eyebrow}
+      </p>
+
+      <h2>
+        {site.reviewsSection.heading}
+      </h2>
+
+    </div>
+
+    <div class="reviews-grid">
+
+      {site.reviews.map((review) => (
+
+        <article class="review-card">
+
+          <div class="stars">
+            {review.stars}
+          </div>
+
+          <p>
+            “{review.text}”
+          </p>
+
+          <div class="review-author">
+
+            <strong>
+              {review.name}
+            </strong>
+
+            <span>
+              {review.location}
+            </span>
+
+          </div>
+
+        </article>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .reviews {
+    padding: 110px 40px;
+    background: white;
+  }
+
+  .reviews-inner {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .reviews-heading {
+    max-width: 720px;
+    margin-bottom: 55px;
+  }
+
+  .eyebrow {
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: #111827;
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .review-card {
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    background: #fafaf8;
+  }
+
+  .stars {
+    color: var(--brand);
+    letter-spacing: 3px;
+    margin-bottom: 22px;
+  }
+
+  .review-card p {
+    color: #4b5563;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .review-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .review-author strong {
+    color: #111827;
+  }
+
+  .review-author span {
+    color: #6b7280;
+    font-size: 14px;
+  }
+
+ @media (max-width: 800px) {
+
+  .reviews {
+    padding: 80px 24px;
+  }
+
+  .reviews-header {
+    margin-bottom: 40px;
+  }
+
+  .reviews-header h2 {
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .review-card {
+    padding: 26px 22px;
+  }
+
+  .review-card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .reviews {
+    padding: 70px 18px;
+  }
+
+  .review-card {
+    padding: 24px 20px;
+  }
+
+}
+</style>

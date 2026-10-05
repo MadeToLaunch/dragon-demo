@@ -1,0 +1,228 @@
+---
+import { site } from "../data/site.js";
+---
+
+<section class="projects" id="projects">
+  <div class="projects-inner">
+
+    <div class="projects-heading">
+
+      <div>
+        <p class="eyebrow">
+          {site.projectsSection.eyebrow}
+        </p>
+
+        <h2>
+          {site.projectsSection.heading}
+        </h2>
+      </div>
+
+      <a href="#contact" class="projects-cta">
+        {site.projectsSection.buttonText}
+      </a>
+
+    </div>
+
+    <div class="projects-grid">
+
+      {site.projects.map((project) => (
+
+        <article class={`project-card ${project.large ? "large" : ""}`}>
+
+          <div
+            class="project-image"
+            style={`background-image:
+              linear-gradient(
+                rgba(14, 153, 82, 0.08),
+                rgba(17, 24, 39, 0.18)
+              ),
+              url("${project.image}")`}
+          ></div>
+
+          <div class="project-info">
+
+            <span>
+              {project.type}
+            </span>
+
+            <h3>
+              {project.title}
+            </h3>
+
+            <p>
+              {project.location}
+            </p>
+
+          </div>
+
+        </article>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding: 110px 40px;
+    background: #fafaf8;
+  }
+
+  .projects-inner {
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .projects-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 55px;
+  }
+
+  .eyebrow {
+    color: var(--brand);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    max-width: 720px;
+    margin: 0;
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    color: #111827;
+  }
+
+  .projects-cta {
+    flex-shrink: 0;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .projects-cta:hover {
+    color: var(--brand);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .project-card {
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    background: white;
+  }
+
+  .project-card.large {
+    grid-row: span 2;
+  }
+
+  .project-image {
+    min-height: 280px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .large .project-image {
+    min-height: 500px;
+  }
+
+
+
+  .project-info {
+    padding: 24px 26px 28px;
+  }
+
+  .project-info span {
+    display: inline-block;
+    margin-bottom: 10px;
+
+    color: var(--brand);
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .project-info h3 {
+    margin: 0 0 8px;
+
+    font-size: 22px;
+    line-height: 1.2;
+
+    color: #111827;
+  }
+
+  .project-info p {
+    margin: 0;
+    color: #6b7280;
+  }
+
+  @media (max-width: 850px) {
+
+  .projects {
+    padding: 80px 24px;
+  }
+
+  .projects-header {
+    margin-bottom: 40px;
+  }
+
+  .projects-header h2 {
+    font-size: 38px;
+    line-height: 1.05;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card,
+  .project-card.large {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .project-image,
+  .large .project-image {
+    min-height: 280px;
+  }
+
+  .project-info {
+    padding: 22px 20px;
+  }
+
+  .project-info h3 {
+    font-size: 21px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .projects {
+    padding: 70px 18px;
+  }
+
+  .project-image,
+  .large .project-image {
+    min-height: 240px;
+  }
+
+}
+</style>
